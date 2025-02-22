@@ -9,7 +9,6 @@ import (
 	"github.com/gorilla/websocket"
 	"go.uber.org/zap"
 	"net/http"
-	"os"
 	"sync"
 	"time"
 )
@@ -50,10 +49,7 @@ func (m *WSHeartbeat) Provision(ctx caddy.Context) error {
 
 	// Configure the heartbeat interval.
 	if m.Interval == "" {
-		m.Interval = os.Getenv("WS_PING_INTERVAL")
-		if m.Interval == "" {
-			m.Interval = "30s"
-		}
+		m.Interval = "15s"
 	}
 	dur, err := time.ParseDuration(m.Interval)
 	if err != nil || dur <= 0 {
