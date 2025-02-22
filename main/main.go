@@ -35,7 +35,7 @@ func wsHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.HandleFunc("/ws", wsHandler)
+	http.HandleFunc("/ws/", wsHandler)
 	fmt.Println("WebSocket server started on :9000")
 	log.Fatal(http.ListenAndServe(":9000", nil))
 }

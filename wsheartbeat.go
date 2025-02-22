@@ -123,10 +123,6 @@ func (m *WSHeartbeat) ServeHTTP(w http.ResponseWriter, r *http.Request, next cad
 	reqHeader.Del("Sec-WebSocket-Extensions")
 	reqHeader.Del("Sec-WebSocket-Protocol")
 	reqHeader.Del("Connection")
-	reqHeader.Del("Upgrade")
-	reqHeader.Del("Host")
-	reqHeader.Del("Origin")
-	reqHeader.Del("User-Agent")
 
 	// Dial the backend WebSocket service.
 	backendConn, _, err := websocket.DefaultDialer.Dial(backendURL, reqHeader)
