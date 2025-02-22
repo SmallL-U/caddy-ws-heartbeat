@@ -1,4 +1,4 @@
-module github.com/smalll-u/ws-heartbeat
+module github.com/smalll-u/caddy-ws-heartbeat
 
 go 1.23.4
 
