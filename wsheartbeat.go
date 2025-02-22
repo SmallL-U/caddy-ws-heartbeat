@@ -118,8 +118,22 @@ func (m *WSHeartbeat) ServeHTTP(w http.ResponseWriter, r *http.Request, next cad
 	// Construct backend URL.
 	backendURL := "ws://" + m.BackendHost + r.URL.Path
 
+	// Clone client header
+	reqHeader := r.Header.Clone()
+
+	// Remove WebSocket headers from the request.
+	reqHeader.Del("Sec-WebSocket-Version")
+	reqHeader.Del("Sec-WebSocket-Key")
+	reqHeader.Del("Sec-WebSocket-Extensions")
+	reqHeader.Del("Sec-WebSocket-Protocol")
+	reqHeader.Del("Connection")
+	reqHeader.Del("Upgrade")
+	reqHeader.Del("Host")
+	reqHeader.Del("Origin")
+	reqHeader.Del("User-Agent")
+
 	// Dial the backend WebSocket service.
-	backendConn, _, err := websocket.DefaultDialer.Dial(backendURL, nil)
+	backendConn, _, err := websocket.DefaultDialer.Dial(backendURL, reqHeader)
 	if err != nil {
 		m.logger.Error("Failed to dial backend WebSocket server", zap.Error(err))
 		_ = clientConn.Close()

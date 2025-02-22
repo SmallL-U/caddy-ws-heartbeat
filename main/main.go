@@ -10,6 +10,9 @@ import (
 var upgrader = websocket.Upgrader{}
 
 func wsHandler(w http.ResponseWriter, r *http.Request) {
+	// 打印请求的 header 信息
+	fmt.Println("请求 Header:", r.Header)
+
 	conn, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
 		log.Println("WebSocket Upgrade error:", err)
