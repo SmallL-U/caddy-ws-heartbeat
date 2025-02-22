@@ -13,7 +13,7 @@ func wsHandler(w http.ResponseWriter, r *http.Request) {
 	// Print the request header
 	fmt.Println("请求 Header:", r.Header)
 	// Print the request path
-	fmt.Println("请求 Path:", r.URL.Path)
+	fmt.Println("请求 Path:", r.URL)
 
 	conn, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {

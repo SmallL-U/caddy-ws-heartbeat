@@ -112,7 +112,7 @@ func (m *WSHeartbeat) ServeHTTP(w http.ResponseWriter, r *http.Request, next cad
 	m.logger.Debug("Client WebSocket connection established", zap.String("remote_addr", r.RemoteAddr))
 
 	// Construct backend URL.
-	backendURL := "ws://" + m.BackendHost + r.URL.RequestURI()
+	backendURL := "ws://" + m.BackendHost + r.URL.String()
 
 	// Clone client header
 	reqHeader := r.Header.Clone()
@@ -131,7 +131,7 @@ func (m *WSHeartbeat) ServeHTTP(w http.ResponseWriter, r *http.Request, next cad
 	// Dial the backend WebSocket service.
 	backendConn, _, err := websocket.DefaultDialer.Dial(backendURL, reqHeader)
 	if err != nil {
-		m.logger.Error("Failed to dial backend WebSocket server", zap.Error(err))
+		m.logger.Debug("Failed to dial backend WebSocket server", zap.Error(err))
 		_ = clientConn.Close()
 		return err
 	}
