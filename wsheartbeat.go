@@ -112,7 +112,7 @@ func (m *WSHeartbeat) ServeHTTP(w http.ResponseWriter, r *http.Request, next cad
 	m.logger.Debug("Client WebSocket connection established", zap.String("remote_addr", r.RemoteAddr))
 
 	// Construct backend URL.
-	backendURL := "ws://" + m.BackendHost + r.URL.Path
+	backendURL := "ws://" + m.BackendHost + r.URL.RequestURI()
 
 	// Clone client header
 	reqHeader := r.Header.Clone()

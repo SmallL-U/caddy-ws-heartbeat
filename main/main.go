@@ -10,8 +10,10 @@ import (
 var upgrader = websocket.Upgrader{}
 
 func wsHandler(w http.ResponseWriter, r *http.Request) {
-	// 打印请求的 header 信息
+	// Print the request header
 	fmt.Println("请求 Header:", r.Header)
+	// Print the request path
+	fmt.Println("请求 Path:", r.URL.Path)
 
 	conn, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
