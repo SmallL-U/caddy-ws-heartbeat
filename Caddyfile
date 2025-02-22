@@ -1,0 +1,10 @@
+{
+  order ws_heartbeat before reverse_proxy
+}
+:8080 {
+    ws_heartbeat {
+        interval 5s
+        backend 127.0.0.1:9000 /ws
+    }
+    reverse_proxy http://127.0.0.1:9000
+}
