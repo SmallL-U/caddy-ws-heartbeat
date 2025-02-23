@@ -15,13 +15,7 @@
 
 要使用此模块，您需要构建包含 `caddy-ws-heartbeat` 模块的 Caddy。请按照以下步骤操作：
 
-1. 克隆仓库：
-    ```sh
-    git clone https://github.com/smalll-u/caddy-ws-heartbeat.git
-    cd caddy-ws-heartbeat
-    ```
-
-2. 构建包含该模块的 Caddy：
+1. 构建包含该模块的 Caddy：
     ```sh
     xcaddy build --with github.com/smalll-u/caddy-ws-heartbeat
     ```

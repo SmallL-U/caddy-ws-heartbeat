@@ -15,13 +15,7 @@ The `caddy-ws-heartbeat` module is a Caddy HTTP handler that upgrades HTTP conne
 
 To use this module, you need to build Caddy with the `caddy-ws-heartbeat` module included. Follow these steps:
 
-1. Clone the repository:
-    ```sh
-    git clone https://github.com/smalll-u/caddy-ws-heartbeat.git
-    cd caddy-ws-heartbeat
-    ```
-
-2. Build Caddy with the module:
+1. Build Caddy with the module:
     ```sh
     xcaddy build --with github.com/smalll-u/caddy-ws-heartbeat
     ```
