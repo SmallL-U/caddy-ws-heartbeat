@@ -6,23 +6,22 @@ The `caddy-ws-heartbeat` module is a Caddy HTTP handler that upgrades HTTP conne
 
 ## Features
 
-- Upgrades HTTP connections to WebSocket connections.
-- Sends periodic heartbeat pings to WebSocket clients.
-- Proxies WebSocket messages between clients and a backend WebSocket server.
-- Supports subprotocol negotiation.
+- Upgrades HTTP connections to WebSocket connections
+- Sends periodic heartbeat pings to WebSocket clients
+- Proxies WebSocket messages between clients and a backend WebSocket server
+- Supports subprotocol negotiation
 
 ## Installation
 
-To use this module, you need to build Caddy with the `caddy-ws-heartbeat` module included. Follow these steps:
+To use this module, you need to build Caddy with the `caddy-ws-heartbeat` module included:
 
-1. Build Caddy with the module:
-    ```sh
-    xcaddy build --with github.com/smalll-u/caddy-ws-heartbeat
-    ```
+```sh
+xcaddy build --with github.com/smalll-u/caddy-ws-heartbeat
+```
 
 ## Configuration
 
-You can configure the `caddy-ws-heartbeat` module in your Caddyfile. Here is an example configuration:
+Configure the `caddy-ws-heartbeat` module in your Caddyfile:
 
 ```Caddyfile
 {
@@ -42,12 +41,12 @@ You can configure the `caddy-ws-heartbeat` module in your Caddyfile. Here is an 
 
 ### Parameters
 
-- `interval`: The interval between heartbeat pings (default: `15s`).
-- `backend`: The backend WebSocket server host and allowed paths.
+- `interval`: The interval between heartbeat pings (default: `15s`)
+- `backend`: The backend WebSocket server host and allowed paths
 
 ## Using Multiple Backend Addresses
 
-If you need to use multiple backend addresses, you can achieve this by defining multiple routes in your Caddyfile. Each route should wrap a `ws_heartbeat` directive. Here is an example configuration:
+For multiple backend addresses, define multiple routes in your Caddyfile:
 
 ```caddyfile
 route /backend1 {
@@ -69,16 +68,16 @@ This setup allows you to handle multiple backend addresses, each with its own `w
 
 ## Usage
 
-1. Start the Caddy server with your Caddyfile configuration:
+1. Start the Caddy server:
     ```sh
     caddy run --config /path/to/Caddyfile
     ```
 
-2. Connect to the WebSocket endpoint using a WebSocket client.
+2. Connect to the WebSocket endpoint using a WebSocket client
 
 ## Example
 
-Here is an example of a simple WebSocket server that can be used as a backend:
+A simple backend WebSocket server example:
 
 ```go
 package main
