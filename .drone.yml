@@ -6,10 +6,8 @@ steps:
   - name: push
     image: plugins/docker
     settings:
-      mirror:
-        from_secret: docker_registry
-      registry:
-        from_secret: docker_registry
+      mirror: tech2go.dev
+      registry: tech2go.dev
       username:
         from_secret: docker_username
       password:
