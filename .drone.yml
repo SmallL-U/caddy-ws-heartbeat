@@ -15,6 +15,5 @@ steps:
       password:
         from_secret: docker_password
       dry_run: true
-      daemon_off: true
       repo: smalllu/caddy
       tags: [2.9-alpine]
