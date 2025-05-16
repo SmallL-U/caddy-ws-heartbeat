@@ -5,7 +5,6 @@ on:
       - main
 jobs:
   build-and-publish:
-    name: Build and publish image to docker hub
     runs-on: ubuntu-latest
     steps:
       - name: Login to registry
