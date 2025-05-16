@@ -9,6 +9,8 @@ steps:
   - name: push
     image: plugins/docker
     settings:
+      registry:
+        from_secret: docker_registry
       username:
         from_secret: docker_username
       password:
