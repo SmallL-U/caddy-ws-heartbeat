@@ -2,6 +2,9 @@ ARG version=2.9-alpine
 ARG builderVersion=2.9-builder-alpine
 FROM caddy:$builderVersion AS builder
 
+RUN apk add --no-cache bind-tools \
+  && nslookup goproxy.cn 114.114.114.114
+
 RUN go env -w GO111MODULE=on \
     && go env -w GOPROXY=https://goproxy.cn,direct \
     && xcaddy build \
