@@ -3,7 +3,6 @@ ARG builderVersion=2.9-builder-alpine
 FROM caddy:$builderVersion AS builder
 
 RUN go env -w GO111MODULE=on \
-    && go env -w GOPROXY=https://goproxy.cn,direct \
     && xcaddy build \
     --with github.com/smalll-u/caddy-ws-heartbeat \
     --with github.com/caddyserver/replace-response
