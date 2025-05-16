@@ -15,5 +15,6 @@ steps:
       password:
         from_secret: docker_password
       dry_run: true
+      custom_dns: 127.0.0.11
       repo: smalllu/caddy
       tags: [2.9-alpine]
