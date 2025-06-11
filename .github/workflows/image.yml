@@ -17,7 +17,7 @@ jobs:
         with:
           push: true
           tags: |
-            smalllu/caddy:${{ env.VERSION }}
+            smalllu/caddy:${{ vars.VERSION }}
           build-args: |
-            version=${{ env.VERSION }}
-            builderVersion=${{ env.BUILDER_VERSION }}
+            version=${{ vars.VERSION }}
+            builderVersion=${{ vars.BUILDER_VERSION }}
