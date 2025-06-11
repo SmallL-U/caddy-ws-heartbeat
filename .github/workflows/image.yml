@@ -15,5 +15,9 @@ jobs:
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
         with:
-          push: 'true'
-          tags: smalllu/caddy:2.9-alpine
+          push: true
+          tags: |
+            smalllu/caddy:${{ env.VERSION }}
+          build-args: |
+            version=${{ env.VERSION }}
+            builderVersion=${{ env.BUILDER_VERSION }}
